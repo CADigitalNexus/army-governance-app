@@ -16,12 +16,13 @@ import Stack from '@mui/material/Stack'
 import { Typography } from '@mui/material'
 
 import '../../../global.css'
+import './header.css'
 
-const nearLogo = require('../../../img/near-guilds-logo.png')
+const armyLogo = require('../../../img/ca-header-dark.png')
 
 const logoStyle = {
-    maxWidth: '150px',
-    marginTop: '10px'
+    maxWidth: '200px',
+    marginLeft: '10px'
 }
 
 const Header = ({ state, handleUpdate }) => {
@@ -99,6 +100,8 @@ const Header = ({ state, handleUpdate }) => {
             {wallet && wallet.signedIn ? 
                 !matches ? (
                     <>
+                    <div className="header">
+                    
                     <Grid item >
                     <div style={{float:'left', marginTop: '15px'}}>
                         <LeftSideDrawer
@@ -106,7 +109,7 @@ const Header = ({ state, handleUpdate }) => {
                         />
                     </div>
                         <Link to="/"> 
-                            <ImageLoader image={nearLogo} style={logoStyle}/>
+                            <ImageLoader image={armyLogo} style={logoStyle}/>
                         </Link>
                     </Grid>
                     <Grid item style={{minWidth: '100px'}}>
@@ -120,10 +123,13 @@ const Header = ({ state, handleUpdate }) => {
                             </Stack>
                         }
                     </Grid>
+                    </div>
                     </>
                 )
                 : (
                     <>
+                    <div className="header">
+                    
                     <Grid item >
                         <div style={{float:'left', marginTop: '15px'}}>
                             <LeftSideDrawer
@@ -131,7 +137,7 @@ const Header = ({ state, handleUpdate }) => {
                             />
                         </div>
                         <Link to="/"> 
-                            <ImageLoader image={nearLogo} style={logoStyle}/>
+                            <ImageLoader image={armyLogo} style={logoStyle}/>
                         </Link>
                     </Grid>
                     <Grid item  style={{minWidth: '100px'}}>
@@ -144,12 +150,15 @@ const Header = ({ state, handleUpdate }) => {
                             </Stack>
                         }
                     </Grid>
+                    </div>
                     </>
                 )
             :  
             wallet && !wallet.signedIn ? 
                 !matches ? (
                     <>
+                    <div className="header">
+                   
                     <Grid item >
                         <div style={{float:'left', marginTop: '15px'}}>
                             <LeftSideDrawer
@@ -157,7 +166,7 @@ const Header = ({ state, handleUpdate }) => {
                             />
                         </div>
                         <Link to="/"> 
-                            <ImageLoader image={nearLogo} style={logoStyle}/>
+                            <ImageLoader image={armyLogo} style={logoStyle}/>
                         </Link>
                     </Grid>
                     <Grid item style={{minWidth: '100px'}}>
@@ -170,9 +179,12 @@ const Header = ({ state, handleUpdate }) => {
                             </Stack>
                         }
                     </Grid>
+                    </div>
                     </>
                 ) : (
                     <>
+                    <div className="header">
+                    
                     <Grid item >
                         <div style={{float:'left', marginTop: '15px'}}>
                             <LeftSideDrawer
@@ -181,7 +193,7 @@ const Header = ({ state, handleUpdate }) => {
                             />
                         </div>
                         <Link to="/"> 
-                            <ImageLoader image={nearLogo} style={logoStyle}/>
+                            <ImageLoader image={armyLogo} style={logoStyle}/>
                         </Link>
                     </Grid>
                     <Grid item style={{minWidth: '100px'}}>
@@ -194,6 +206,7 @@ const Header = ({ state, handleUpdate }) => {
                             </Stack>
                         }
                     </Grid>
+                    </div>
                     </>
                 ) 
             : null

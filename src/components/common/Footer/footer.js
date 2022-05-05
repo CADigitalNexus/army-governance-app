@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import ImageLoader from '../ImageLoader/imageLoader'
-import projectLogo from '../../../img/footer-vpai.png'
-import powered from '../../../img/powered-by.png'
+import crest from '../../../img/army-footer-crest.png'
+import nationaldefense from '../../../img/national-defense.png'
+import canada from '../../../img/canada.gif'
 import './footer.css'
 
 import useMediaQuery from '@mui/material/useMediaQuery'
@@ -12,60 +12,31 @@ const Footer = ({}) => {
     const matches = useMediaQuery('(max-width:500px)')
 
     return (
-    !matches ? 
+    !matches ?
         <div className="footer">
             <div className="left">
-                <a href="https://vitalpoint.ai" style={{color:'#FFFFFF'}}>
-                by <ImageLoader image={projectLogo} style={{height: "0.9em", marginTop: '7px'}} />
-                </a>
-                <br></br>
-                <Typography variant="body2" style={{fontSize: '90%'}}>
-                    a NEAR guild
-                </Typography>
-                <a href="https://vitalpoint.ai" style={{color:'#FFFFFF'}}>
-                    <Typography variant="body2" style={{fontSize: '90%'}}>
-                        Join us.
-                    </Typography>
-                </a>
+                <ImageLoader image={nationaldefense} style={{height: "25px", marginTop: '45px'}} />
             </div>
             <div>
-                <ImageLoader image={powered} style={{height: "3em", marginTop: '8px'}} />
+                <ImageLoader image={crest} style={{height: '100px', marginTop: '-10px'}} />
             </div>
            
             <div className="footerright">
-            <Typography variant="body2" style={{fontSize: '90%'}}>NEAR Guilds<br></br>Open source/as is.<br></br>
-           No warranty of any kind.
-            </Typography>
+                <ImageLoader image={canada} style={{height: "30px", marginTop: '40px'}} />
             </div>
         </div>
         :
-        <>
         <div className="footer-mobile">
-        <div className="left">
-            <a href="https://vitalpoint.ai" style={{color:'#FFFFFF'}}>
-            by <ImageLoader image={projectLogo} style={{height: "0.9em", marginTop: '7px'}} />
-            </a>
-            <br></br>
-            <Typography variant="body2" style={{fontSize: '90%'}}>
-                a NEAR guild
-            </Typography>
-            <a href="https://vitalpoint.ai" style={{color:'#FFFFFF'}}>
-                <Typography variant="body2" style={{fontSize: '90%'}}>
-                    Join us.
-                </Typography>
-            </a>
+            <div className="left">
+                <ImageLoader image={nationaldefense} style={{height: "20px", marginTop: '35px'}} />
+            </div>
+            <div>
+                <ImageLoader image={crest} style={{height: '75px', marginTop: '-10px', marginLeft:'-30px'}} />
+            </div>
+            <div className="footerright">
+                <ImageLoader image={canada} style={{height: "25px", marginTop: '30px'}} />
+            </div>
         </div>
-        <div>
-            <ImageLoader image={powered} style={{height: "3em", marginTop: '8px'}} />
-        </div>
-        <div className="footerright">
-            <Typography variant="body2" style={{fontSize: '90%'}}>NEAR Guilds<br></br>
-            Open source/as is.<br></br>
-            No warranty.
-            </Typography>
-        </div>
-        </div>
-        </>
     )
 }
 

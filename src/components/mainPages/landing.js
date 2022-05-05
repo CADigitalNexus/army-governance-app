@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import globe from '../../img/globe.png'
 import { Link } from 'react-router-dom'
 
 // Material UI Components
@@ -75,7 +74,9 @@ const Landing = (state) => {
             <Grid container justifyContent="center" alignItems="center" spacing={0}>
                
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center">
-                    <img src={globe} style={{width: '75%', marginTop: '20px'}}/>
+
+                
+               
                 </Grid>
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center">
                     <Typography variant="h4" style={{marginTop: '15px', marginBottom: '15px'}}>Make your vision real.</Typography>
@@ -143,7 +144,7 @@ const Landing = (state) => {
             <Grid container justifyContent="center" alignItems="center" spacing={0} >
               
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center">
-                    <img src={globe} style={{width: '75%', marginTop: '20px'}}/>
+                   
                 </Grid>
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center">
                     <Typography variant="h4" style={{marginTop: '15px', marginBottom: '15px'}}>Make your vision real.</Typography>

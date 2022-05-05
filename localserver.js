@@ -96,6 +96,6 @@ function verifyToken(req, res, next){
   }
 }
 
-app.listen(3000, () => {
+app.listen(3007, () => {
   console.log('running')
 });
