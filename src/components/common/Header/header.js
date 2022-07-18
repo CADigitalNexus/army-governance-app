@@ -18,10 +18,12 @@ import { Typography } from '@mui/material'
 import '../../../global.css'
 import './header.css'
 
-const armyLogo = require('../../../img/ca-header-dark.png')
+const armyLogo = require('../../../img/dip-dark-logo.png')
 
 const logoStyle = {
     maxWidth: '200px',
+    maxHeight: '50px',
+    marginTop: '5px',
     marginLeft: '10px'
 }
 
@@ -114,10 +116,16 @@ const Header = ({ state, handleUpdate }) => {
                     </Grid>
                     <Grid item style={{minWidth: '100px'}}>
         
-                        {wallet && !wallet.signedIn ? <LoginButton /> :  
-                            <Stack direction="row" spacing={1} justifyContent="center">
-                                <Typography variant="overline" style={{color:'#FFFFFF'}}>
-                                    {accountId}
+                        {wallet && !wallet.signedIn ? 
+                            <Stack spacing={1} justifyContent="center">
+                                <Typography variant="body1" style={{color:'#FFFFFF'}}>
+                                    français
+                                </Typography>    
+                            <LoginButton />
+                            </Stack> :  
+                            <Stack spacing={1} justifyContent="center">
+                                <Typography variant="body1" style={{color:'#FFFFFF'}}>
+                                    français
                                 </Typography>
                                 <LogoutButton /> 
                             </Stack>
@@ -141,10 +149,16 @@ const Header = ({ state, handleUpdate }) => {
                         </Link>
                     </Grid>
                     <Grid item  style={{minWidth: '100px'}}>
-                        {wallet && !wallet.signedIn ? <LoginButton /> :  
+                        {wallet && !wallet.signedIn ?  
                             <Stack spacing={1} justifyContent="center">
-                                <Typography variant="overline" style={{color:'#FFFFFF'}}>
-                                    {accountId.length <= 17 ? accountId : accountId.substring(0,15) + "..."}
+                                <Typography variant="body1" style={{color:'#FFFFFF'}}>
+                                    français
+                                </Typography>
+                                <LoginButton />
+                            </Stack> :    
+                            <Stack spacing={1} justifyContent="center">
+                                <Typography variant="body1" style={{color:'#FFFFFF'}}>
+                                    français
                                 </Typography>
                                 <LogoutButton /> 
                             </Stack>
@@ -170,10 +184,16 @@ const Header = ({ state, handleUpdate }) => {
                         </Link>
                     </Grid>
                     <Grid item style={{minWidth: '100px'}}>
-                        {wallet && !wallet.signedIn ? <LoginButton /> :   
-                            <Stack direction="row" spacing={1} justifyContent="center">
-                                <Typography variant="overline" style={{color:'#FFFFFF'}}>
-                                    {accountId}
+                        {wallet && !wallet.signedIn ? 
+                            <Stack spacing={1} justifyContent="center">
+                                <Typography variant="body1" style={{color:'#FFFFFF'}}>
+                                    français
+                                </Typography>    
+                            <LoginButton />
+                            </Stack> :  
+                            <Stack spacing={1} justifyContent="center">
+                                <Typography variant="body1" style={{color:'#FFFFFF'}}>
+                                    français
                                 </Typography>
                                 <LogoutButton /> 
                             </Stack>
@@ -197,10 +217,16 @@ const Header = ({ state, handleUpdate }) => {
                         </Link>
                     </Grid>
                     <Grid item style={{minWidth: '100px'}}>
-                        {wallet && !wallet.signedIn ? <LoginButton /> :  
+                        {wallet && !wallet.signedIn ? 
+                            <Stack  spacing={1} justifyContent="center">
+                                <Typography variant="body1" style={{color:'#FFFFFF'}}>
+                                    français
+                                </Typography>    
+                            <LoginButton />
+                            </Stack> :  
                             <Stack spacing={1} justifyContent="center">
-                                <Typography variant="overline" style={{color:'#FFFFFF'}}>
-                                    {accountId.length <= 17 ? accountId : accountId.substring(0,15) + "..."}
+                                <Typography variant="body1" style={{color:'#FFFFFF'}}>
+                                    français
                                 </Typography>
                                 <LogoutButton /> 
                             </Stack>

@@ -34,7 +34,7 @@ export const {
     KEY_REDIRECT, APP_OWNER_ACCOUNT, IPFS_PROVIDER, FACTORY_DEPOSIT, CERAMIC_API_URL, APPSEED_CALL, 
     networkId, nodeUrl, walletUrl, nameSuffix,
     contractName, didRegistryContractName, factoryContractName,
-    TOKEN_CALL, AUTH_TOKEN, ALIASES, FUNDING_SEED_CALL
+    TOKEN_CALL, AUTH_TOKEN, ALIASES, FUNDING_SEED_CALL, SECRETSET_CALL, SECRETGET_CALL
 } = config
 
 export const {
@@ -224,9 +224,74 @@ class Ceramic {
     return ceramic
   }
 
+  async setVaultKeyPair(microsoftAccount){
+
+    let token = await axios.post(TOKEN_CALL, 
+      {
+      accountId: microsoftAccount
+      }    
+    )
+    
+    set(AUTH_TOKEN, token.data.token)
+  
+    let authToken = get(AUTH_TOKEN, [])
+
+    let keyPair = KeyPair.fromRandom('ed25519')
+    let keyString = {
+      "accountId": microsoftAccount,
+      "public_key": keyPair.getPublicKey().toString(),
+      "private_key": keyPair.secretKey
+    }
+
+    let storeString = JSON.stringify(keyString)
+
+    let secretSet = await axios.post(SECRETSET_CALL, 
+      {
+        accountId: microsoftAccount,
+        keypair: storeString
+      },
+      {
+        headers: {
+        'Authorization': `Basic ${authToken}`
+        }
+      }
+    )
+
+    return secretSet.data.set
+  }
+
+  async getVaultKeyPair(microsoftAccount){
+    console.log('microsoftaccount', microsoftAccount)
+    let token = await axios.post(TOKEN_CALL, 
+      {
+      accountId: microsoftAccount
+      }    
+    )
+    
+    set(AUTH_TOKEN, token.data.token)
+  
+    let authToken = get(AUTH_TOKEN, [])
+    console.log('authtoken', authToken)
+    let result = await axios.post(SECRETGET_CALL, 
+      {
+        accountId: microsoftAccount
+      },
+      {
+        headers: {
+        'Authorization': `Basic ${authToken}`
+        }
+      }
+    )
+    console.log('get vault key result', result)
+    if(result.data.keyPair && result.data.keyPair != ""){
+      return JSON.parse(result.data.keyPair)
+    } else {
+      return false
+    }
+  }
 
   async getAppCeramic(accountId) {
-console.log('TOKENCALL', TOKEN_CALL)
+
     let token = await axios.post(TOKEN_CALL, 
       {
       accountId: accountId

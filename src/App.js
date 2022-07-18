@@ -22,8 +22,11 @@ import Admin from './components/mainPages/admin'
 import Pledge from './components/mainPages/pledge'
 import Announcements from './components/mainPages/announcements'
 import Dashboard from './components/mainPages/dashboard'
+import BottomAppBar from './components/common/BottomAppBar/bottomAppBar'
 import { Home } from './components/mainPages/home'
-
+import { useMsal, AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
+import Splash from './components/mainPages/splash'
+import { ceramic } from './utils/ceramic'
 
 // Material-UI Components
 import { makeStyles } from '@mui/styles'
@@ -44,7 +47,8 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         position: 'relative',
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        backgroundColor: '#300A6E'
       },
     centered: {
       width: '200px',
@@ -85,6 +89,29 @@ const App = () => {
         dispatch(onAppMount());
     };
 
+    const { accounts } = useMsal();
+    
+    useEffect(() => {
+
+        async function fetchData(){
+            let keypair = false
+            if(accounts){
+                keypair = await ceramic.getVaultKeyPair(accounts[0].username)
+                console.log('keypair', keypair)
+                if(!keypair){
+                    let result = await ceramic.setVaultKeyPair(accounts[0].username)
+                    console.log('result', result)
+                }
+            }
+            update('', {microsoftAccount: accounts, keyPair: keypair})
+        }
+
+        fetchData()
+        .then(() => {
+
+        })
+    }, [accounts])
+
     useEffect(onMount, []);
 
     window.onerror = function (message, url, lineNo) {
@@ -95,7 +122,7 @@ const App = () => {
     }    
     
     const {
-        accountData, funding, wallet
+        accountData, funding, wallet, microsoftAccount
     } = state
     
     let children = null
@@ -128,12 +155,27 @@ const App = () => {
     
     return(
         <>
-        <div className={classes.root}>
-        <Header state={state}/>
         
+        <UnauthenticatedTemplate>
+        <div className={classes.root}>
         <Grid container alignItems="center" justifyContent="center" >
             <Grid item align="center" className={`${!matches ? classes.container : classes.containerFull}`}>
-        
+                <Route exact path="/">
+                    <Splash
+                        state={state}
+                        >
+                        { children }
+                    </Splash>
+                </Route>
+            </Grid>
+        </Grid>
+        </div>
+        </UnauthenticatedTemplate>
+
+        <AuthenticatedTemplate>
+        <div className={classes.root}> 
+        <Grid container alignItems="center" justifyContent="center" >
+            <Grid item align="center" className={`${!matches ? classes.container : classes.containerFull}`}>
             <Route exact path="/">
                 <Home 
                     state={state}
@@ -247,10 +289,12 @@ const App = () => {
             </Route>
            </Grid>
         </Grid>
+        </div> 
+        <BottomAppBar />
+        </AuthenticatedTemplate>
 
-        </div>     
-        <Footer />
         </>
+       
     )
 }
 

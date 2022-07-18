@@ -8,6 +8,7 @@ import GuildProfile from '../Profiles/guildProfile'
 import UnregisteredProfile from '../Profiles/unregisteredProfile'
 import RandomPhrase from '../../components/common/RandomPhrase/randomPhrase'
 import Landing from './landing'
+import Splash from './splash'
 import { KEY_REDIRECT } from '../../utils/ceramic'
 
 // Material UI & styling
@@ -48,6 +49,7 @@ export const Home = ({ children }) => {
     } = state
     
     const classes = useStyles();
+    console.log('state', state)
 
     useEffect(
         () => {
@@ -67,7 +69,7 @@ export const Home = ({ children }) => {
                 key ? (<SeedSetup />) : 
                     accountType == 'individual' ? (<IndivProfile />) :
                         accountType == 'guild' ? (<GuildProfile/>) : (<UnregisteredProfile />)
-            :  (<Landing state={state} />)
+            :  null
             : state.accountData ? ({children}) 
             : (<>
                 <div className={classes.centered}>

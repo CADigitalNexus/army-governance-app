@@ -1,0 +1,16 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "func start",
+    "test": "echo \"No tests yet...\""
+  },
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.7.3",
+    "@azure/identity": "^2.1.0",
+    "@azure/keyvault-secrets": "^4.4.0"
+  },
+  "devDependencies": {}
+}

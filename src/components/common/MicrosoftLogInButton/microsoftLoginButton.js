@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@mui/styles'
-import { login } from '../../../state/near'
+import { useMsal } from "@azure/msal-react";
 
 // Material UI components
 import Button from '@mui/material/Button'
@@ -8,20 +8,19 @@ import LockOpenTwoToneIcon from '@mui/icons-material/LockOpenTwoTone'
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    marginTop: '5px',
-    float: 'right'
-  },
-  accountButton: {
-    margin: 0,
-    float: 'right',
-    borderTopRightRadius: 0,
-    borderBottomRightRadius: 0
-  },
+    width: '90%',
+    fontSize: '16px'
+  }
   }));
 
-export default function LoginButton(props) {
+export default function MicrosoftLoginButton(props) {
 
     const classes = useStyles()
+    const { instance } = useMsal()
+
+    function signInClickHandler(instance) {
+      instance.loginRedirect();
+    }
 
     return (
         <> 
@@ -29,9 +28,8 @@ export default function LoginButton(props) {
         variant="contained"
         color="primary"
         className={classes.button}
-        style={{marginTop: '-5px', fontSize: '16px'}}
         startIcon={<LockOpenTwoToneIcon />}
-        onClick={login}
+        onClick={() => signInClickHandler(instance)}
         >Sign In</Button>
            
       </>

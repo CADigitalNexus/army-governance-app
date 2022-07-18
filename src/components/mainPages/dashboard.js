@@ -15,6 +15,7 @@ import AccountInfo from '../common/AccountInfo/accountInfo'
 import { catalystDao } from '../../utils/catalystDao'
 import OpportunityCard from '../Cards/OpportunityCard/OpportunityCard'
 import StakingActivity from '../common/StakingActivity/stakingActivity'
+import MicrosoftLogoutButton from '../common/MicrosoftLogOutButton/microsoftLogoutButton'
 
 // Material UI
 import useMediaQuery from '@mui/material/useMediaQuery'
@@ -82,11 +83,13 @@ export default function Dashboard(props) {
       didRegistryContract,
       factoryContract,
       isUpdated,
-      currentActiveDaos
+      currentActiveDaos,
+      microsoftAccount
     } = state
 
     useEffect(
         () => {
+          console.log('microsoft', microsoftAccount)
             async function fetchMemberData() {
                 let memberDaos = []
                 let communities = []
@@ -112,7 +115,7 @@ export default function Dashboard(props) {
   
             })
   
-        }, [currentGuilds, appIdx]
+        }, [currentGuilds, appIdx, microsoftAccount]
     )
 
     useEffect(
@@ -447,7 +450,8 @@ export default function Dashboard(props) {
         
         <Grid container justifyContent="center" alignItems="flex-start" spacing={1} style={{padding: '5px'}}>
             <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center" style={{marginTop: '10px'}}>
-              <AccountInfo />
+            <MicrosoftLogoutButton /> 
+            <AccountInfo />
             </Grid>
 
             <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center">

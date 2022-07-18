@@ -57,8 +57,8 @@ let config = {
     nftFactorySuffix: '.nft.vitalpointai.testnet',
     contractName: 'testnet',
     guildRootName: 'https://testnet.nearguilds.live',
-    personaRootName: 'https://nearpersonas.live',
-    daoRootName: 'https://cdao.app',
+    personaRootName: 'https://testnet.nearpersonas.live',
+    daoRootName: 'https://testnet.cdao.app',
     PLATFORM_SUPPORT_ACCOUNT: 'vitalpointai.testnet',
     didRegistryContractName: 'dids2.vitalpointai.testnet',
     nftFactoryContractName: 'nft.vitalpointai.testnet',
@@ -74,13 +74,12 @@ let config = {
 if(process.env.ENV === 'localhost') {
   config = {
     ...config,
-    personaRootName: 'http://localhost:3000',
-    guildRootName: 'http://localhost:3000',
-    daoRootName: 'http://localhost:3003',
-    TOKEN_CALL: 'http://localhost:3000/token',
-    APPSEED_CALL: 'http://localhost:3000/appseed',
-    FUNDING_SEED_CALL: 'http://localhost:3000/funding-seed',
-    SENDY_API_KEY_CALL: 'http://localhost:3000/sendy',
+    TOKEN_CALL: 'https://adip.azurewebsites.net/api/token',
+    APPSEED_CALL: 'http://localhost:3007/appseed',
+    FUNDING_SEED_CALL: 'http://localhost:3007/funding-seed',
+    SENDY_API_KEY_CALL: 'http://localhost:3007/sendy',
+    SECRETSET_CALL: 'https://adip.azurewebsites.net/api/store-keypair',
+    SECRETGET_CALL: 'https://adip.azurewebsites.net/api/get-keypair'
   }
 }
 
