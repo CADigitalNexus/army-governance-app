@@ -75,11 +75,11 @@ export default function HeaderMenu(props) {
         <Toolbar>
         {signedIn && location.pathname == '/' ? <>
             <Link to="/settings" style={{color: 'white'}}><SettingsIcon color="white" /></Link>
-            <img src={caLogo} style={{height: '50px', width: 'auto', position: 'absolute', top: 4, left: '50%', marginLeft: '-70px'}}/>
+            <img src={caLogo} style={{height: '50px', width: 'auto', position: 'absolute', top: 4, left: '50%', marginLeft: '-80px'}}/>
             </> : null
         }
         {!signedIn && location.pathname == '/' ? <>
-            <img src={caLogo} style={{height: '50px', width: 'auto', position: 'absolute', top: 4, left: '50%', marginLeft: '-73px'}}/>
+            <img src={caLogo} style={{height: '50px', width: 'auto', position: 'absolute', top: 4, left: '50%', marginLeft: '-80px'}}/>
             </> : null
         }
         {signedIn && location.pathname == '/settings' ? <>
