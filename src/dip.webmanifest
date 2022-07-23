@@ -4,7 +4,7 @@
     "description": "Progressive Web App that lists games submitted to the A-Frame category in the js13kGames 2017 competition.",
     "icons": [
       {
-        "src": "ic_launcher_round.png",
+        "src": "dip-logo-96.png",
         "sizes": "96x96",
         "type": "image/png"
       },
@@ -12,14 +12,9 @@
         "src": "dip-logo-512.png",
         "sizes": "512x512",
         "type": "image/png"
-      },
-      {
-        "src": "playstore-icon.png",
-        "sizes": "512x512",
-        "type": "image/png"
       }
     ],
-    "start_url": "/index.html",
+    "start_url": "https://lemon-sand-0d3985a10.1.azurestaticapps.net",
     "display": "fullscreen",
     "theme_color": "#58714C",
     "background_color": "#58714C"
