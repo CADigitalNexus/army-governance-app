@@ -2903,7 +2903,7 @@
     globals "^13.2.0"
     nullthrows "^1.1.1"
 
-"@parcel/packager-raw-url@2.6.2":
+"@parcel/packager-raw-url@^2.6.2":
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/@parcel/packager-raw-url/-/packager-raw-url-2.6.2.tgz#3303fc77c70b814817f0e7ebbc0b13a3633de78b"
   integrity sha512-QMvvGOwfiiZL8AVUBcnTRU7rOaztq8ujPlg4QgDUMuHVytxpDyk+6MuKz7B5y1k+SupGpqK4M6YTrj5+FkeE3w==
