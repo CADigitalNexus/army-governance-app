@@ -47,7 +47,9 @@ module.exports = async function (context, req) {
       }
     } catch (err) {
     context.log('error', err)
-    context.res.sendStatus(403);
+    context.res.json({
+      keyPair: false
+    })
     }
   }
 }

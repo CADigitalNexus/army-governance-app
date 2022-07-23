@@ -5,27 +5,20 @@ import App from './App';
 import { AppProvider } from './state/app.js'
 import { PublicClientApplication } from "@azure/msal-browser";
 import { MsalProvider } from "@azure/msal-react";
-
-// Configuration object constructed.
-const config = {
-    auth: {
-        clientId: 'b7da93bc-25db-4dc8-b8a2-96c96ea2ad02',
-		redirectUri: "http://localhost:3007",
-		postLogoutRedirectUri: "http://localhost:3007",
-		scopes: [],
-    }
-};
+import { msalConfig } from '../authConfig';
 
 // create PublicClientApplication instance
-const publicClientApplication = new PublicClientApplication(config);
+const msalInstance = new PublicClientApplication(msalConfig);
 
 ReactDOM.render(
-	<MsalProvider instance={publicClientApplication}>
+	
 		<AppProvider>
 			<BrowserRouter>
-				<App />
+				<MsalProvider instance={msalInstance}>
+					<App />
+				</MsalProvider>
 			</BrowserRouter>
 		</AppProvider>
-	</MsalProvider>,
+	,
 	document.getElementById('root')
 );

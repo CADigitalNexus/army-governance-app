@@ -44,7 +44,7 @@ const StyledFab = styled(Fab)({
   left: 0,
   right: 0,
   margin: '0 auto',
-  backgroundColor: '#3675E1'
+  backgroundColor: '#798d6f'
 });
 
 export default function BottomAppBar() {
@@ -96,19 +96,19 @@ export default function BottomAppBar() {
       <AppBar position="fixed" sx={{ top: 'auto', bottom: 0 , backgroundColor: 'white'}}>
         <Toolbar style={{justifyContent: 'space-between'}}>
           <IconButton color="inherit" aria-label="open drawer">
-            <HomeIcon style={{color: 'blue'}} />
+            <HomeIcon style={{color: '#58714C'}} />
           </IconButton>
           <IconButton color="inherit" aria-label="open drawer">
-            <MenuIcon style={{marginRight: '80px', color: 'blue'}}/>
+            <MenuIcon style={{marginRight: '80px', color: '#58714C'}}/>
           </IconButton>
           <StyledFab>
               <img src={brainBulb} style={{maxHeight: '40px'}} onClick={handleMenuClick} color="primary" alt="Main Menu" />
           </StyledFab>
           <IconButton color="inherit">
-            <SearchIcon style={{color: 'blue'}}/>
+            <SearchIcon style={{color: '#58714C'}}/>
           </IconButton>
           <IconButton color="inherit">
-            <MoreIcon style={{color: 'blue'}} />
+            <MoreIcon style={{color: '#58714C'}} />
           </IconButton>
         </Toolbar>
       </AppBar>

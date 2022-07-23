@@ -10,6 +10,7 @@ import ThreeIdResolver from '@ceramicnetwork/3id-did-resolver'
 import ThreeIdProvider from '3id-did-provider'
 import { DID } from 'dids'
 
+
 // schemas
 import { profileSchema } from '../schemas/profile'
 import { guildProfileSchema } from '../schemas/guildProfile'
@@ -34,8 +35,9 @@ export const {
     KEY_REDIRECT, APP_OWNER_ACCOUNT, IPFS_PROVIDER, FACTORY_DEPOSIT, CERAMIC_API_URL, APPSEED_CALL, 
     networkId, nodeUrl, walletUrl, nameSuffix,
     contractName, didRegistryContractName, factoryContractName,
-    TOKEN_CALL, AUTH_TOKEN, ALIASES, FUNDING_SEED_CALL, SECRETSET_CALL, SECRETGET_CALL
-} = config
+    TOKEN_CALL, AUTH_TOKEN, ALIASES, FUNDING_SEED_CALL, SECRETSET_CALL, SECRETGET_CALL,
+    MICROSOFTGRAPH_CA, DB_CALL
+  } = config
 
 export const {
   keyStores: { InMemoryKeyStore, BrowserLocalStorageKeyStore },
@@ -49,6 +51,34 @@ export const {
 
 
 class Ceramic {
+
+  async openDBConnection(microsoftAccount){
+
+    let token = await axios.post(TOKEN_CALL, 
+      {
+      accountId: microsoftAccount
+      }    
+    )
+    
+    set(AUTH_TOKEN, token.data.token)
+  
+    let authToken = get(AUTH_TOKEN, [])
+
+    let connectionString = await axios.post(DB_CALL, 
+      {
+        
+      },
+      {
+        headers: {
+        'Authorization': `Basic ${authToken}`
+        }
+      }
+    )
+    console.log('connectionString', connectionString)
+    
+
+    return connectionString.data.connection
+  }
 
   async storeKeysSecret(idx, payload, key, did) {
 
@@ -284,7 +314,7 @@ class Ceramic {
     )
     console.log('get vault key result', result)
     if(result.data.keyPair && result.data.keyPair != ""){
-      return JSON.parse(result.data.keyPair)
+      return JSON.parse(result.data.keyPair.value)
     } else {
       return false
     }

@@ -78,8 +78,10 @@ if(process.env.ENV === 'localhost') {
     APPSEED_CALL: 'http://localhost:3007/appseed',
     FUNDING_SEED_CALL: 'http://localhost:3007/funding-seed',
     SENDY_API_KEY_CALL: 'http://localhost:3007/sendy',
+    DB_CALL: 'http://localhost:3007/db',
     SECRETSET_CALL: 'https://adip.azurewebsites.net/api/store-keypair',
-    SECRETGET_CALL: 'https://adip.azurewebsites.net/api/get-keypair'
+    SECRETGET_CALL: 'https://adip.azurewebsites.net/api/get-keypair',
+    MICROSOFTGRAPH_CALL: 'https://graph.microsoft.com/v2.0'
   }
 }
 
