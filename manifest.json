@@ -1,0 +1,14 @@
+{
+    "short_name": "DIP",
+    "name": "Army Digital Innovation Platform",
+    "icons": [
+      {
+        "src": "ic_launcher_round.png",
+        "sizes": "48x48",
+        "type": "image/png"
+      }
+    ],
+    "start_url": "/index.html",
+    "display": "standalone",
+    "orientation": "portrait"
+  }
