@@ -63,7 +63,6 @@ app.post('/db', cors(), verifyToken, async (req, res) => {
     if(err) {
       res.sendStatus(403);
     } else {
-     // let connection = await mongoose.connect("mongodb://dip:AljfdYvVirxz4cZ35IDu9VCe893MbU4E6Es63m5T4lzO3JVaGUzTdw2sGHlwpoRU5MibCiyWNpPSVKdFxiTQxg==@dip.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@dip@")
     
       let connection = await mongoose.connect("mongodb://"+process.env.COSMOSDB_USER+":"+process.env.COSMOSDB_PASSWORD+"@"+process.env.COSMOSDB_HOST+":"+process.env.COSMOSDB_PORT+"/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@dip@")
       console.log('connection', connection)
