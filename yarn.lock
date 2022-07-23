@@ -4339,10 +4339,10 @@ borsh@^0.3.1:
     bs58 "^4.0.0"
     text-encoding-utf-8 "^1.0.2"
 
-borsh@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.npmjs.org/borsh/-/borsh-0.6.0.tgz"
-  integrity sha512-sl5k89ViqsThXQpYa9XDtz1sBl3l1lI313cFUY1HKr+wvMILnb+58xpkqTNrYbelh99dY7K8usxoCusQmqix9Q==
+borsh@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/borsh/-/borsh-0.7.0.tgz#6e9560d719d86d90dc589bca60ffc8a6c51fec2a"
+  integrity sha512-CLCsZGIBCFnPtkNnieW/a8wmreDmfUtjU2m9yHrzPXIlNbqVs0AQrSatSG6vdNYUqdc83tkQi2eHfF98ubzQLA==
   dependencies:
     bn.js "^5.2.0"
     bs58 "^4.0.0"
@@ -9544,13 +9544,13 @@ near-api-js@^0.37.0:
     text-encoding-utf-8 "^1.0.2"
     tweetnacl "^1.0.1"
 
-near-api-js@~0.44.2:
-  version "0.44.2"
-  resolved "https://registry.npmjs.org/near-api-js/-/near-api-js-0.44.2.tgz"
-  integrity sha512-eMnc4V+geggapEUa3nU2p8HSHn/njtloI4P2mceHQWO8vDE1NGpnAw8FuTBrLmXSgIv9m6oocgFc9t3VNf5zwg==
+near-api-js@~0.45.1:
+  version "0.45.1"
+  resolved "https://registry.yarnpkg.com/near-api-js/-/near-api-js-0.45.1.tgz#0f0a4b378758a2f1b32555399d7356da73d0ef27"
+  integrity sha512-QyPO/vjvMFlcMO1DCpsqzmnSqPIyHsjK1Qi4B5ZR1cJCIWMkqugDF/TDf8FVQ85pmlcYeYwfiTqKanKz+3IG0A==
   dependencies:
     bn.js "5.2.0"
-    borsh "^0.6.0"
+    borsh "^0.7.0"
     bs58 "^4.0.0"
     depd "^2.0.0"
     error-polyfill "^0.1.3"
@@ -10649,7 +10649,7 @@ react-csv@^2.2.2:
   resolved "https://registry.yarnpkg.com/react-csv/-/react-csv-2.2.2.tgz#5bbf0d72a846412221a14880f294da9d6def9bfb"
   integrity sha512-RG5hOcZKZFigIGE8LxIEV/OgS1vigFQT4EkaHeKgyuCbUAu9Nbd/1RYq++bJcJJ9VOqO/n9TZRADsXNDR4VEpw==
 
-"react-dom@^16.8.0 || ^17.0.0":
+react-dom@^17.0.0:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
   integrity sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==
@@ -10758,7 +10758,7 @@ react-transition-group@^4.4.0, react-transition-group@^4.4.2:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-"react@^16.8.0 || ^17.0.0":
+react@^17.0.0:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
   integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
@@ -11040,16 +11040,9 @@ reusify@^1.0.4:
   resolved "https://registry.yarnpkg.com/reusify/-/reusify-1.0.4.tgz#90da382b1e126efc02146e90845a88db12925d76"
   integrity sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==
 
-rimraf@^3.0.0:
+rimraf@^3.0.0, rimraf@^3.0.2:
   version "3.0.2"
   resolved "https://registry.npmjs.org/rimraf/-/rimraf-3.0.2.tgz"
-  integrity sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==
-  dependencies:
-    glob "^7.1.3"
-
-rimraf@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-3.0.2.tgz#f1a5402ba6220ad52cc1282bac1ae3aa49fd061a"
   integrity sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==
   dependencies:
     glob "^7.1.3"
