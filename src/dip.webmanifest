@@ -9,7 +9,7 @@
         "type": "image/png"
       },
       {
-        "src": "ic_launcher-web.png",
+        "src": "dip-logo-512.png",
         "sizes": "512x512",
         "type": "image/png"
       },
@@ -20,7 +20,7 @@
       }
     ],
     "start_url": "/index.html",
-    "display": "standalone",
-    "theme_color": "#FFFFFF",
-    "background_color": "#FFFFFF"
+    "display": "fullscreen",
+    "theme_color": "#58714C",
+    "background_color": "#58714C"
   }
