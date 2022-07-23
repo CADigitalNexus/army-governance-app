@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rimraf ./dist && rimraf .parcel-cache",
     "cleandist": "rimraf ./dist",
-    "build": "node ./node_modules/.bin/parcel build src/index.html --no-scope-hoist --no-optimize",
+    "build": "node ./node_modules/.bin/parcel build src/index.html --no-scope-hoist",
     "build:local": "npm run clean && env-cmd -f ./.env.local node ./node_modules/.bin/parcel build src/index.html --no-scope-hoist --no-optimize",
     "build:test": "npm run clean && env-cmd -f ../.env.test node ./node_modules/.bin/parcel build src/index.html --no-scope-hoist",
     "build:main": "npm run clean && env-cmd -f ./.env.main node ./node_modules/.bin/parcel build src/index.html --no-scope-hoist",
