@@ -5,11 +5,16 @@ import App from './App';
 import { AppProvider } from './state/app.js'
 import { PublicClientApplication } from "@azure/msal-browser";
 import { MsalProvider } from "@azure/msal-react";
-import { msalConfig } from '../authConfig';
+import { msalConfig, msalLocalConfig } from '../authConfig';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 // create PublicClientApplication instance
-const msalInstance = new PublicClientApplication(msalConfig);
+let msalInstance
+if(process.env.ENV == 'localhost'){
+	msalInstance = new PublicClientApplication(msalLocalConfig);
+} else {
+	msalInstance = new PublicClientApplication(msalConfig);
+}
 
 ReactDOM.render(
 	

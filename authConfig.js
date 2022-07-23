@@ -1,3 +1,4 @@
+
 export const msalConfig = {
     auth: {
       clientId: "b7da93bc-25db-4dc8-b8a2-96c96ea2ad02",
@@ -10,6 +11,19 @@ export const msalConfig = {
       storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
     }
   };
+
+export const msalLocalConfig = {
+  auth: {
+    clientId: "b7da93bc-25db-4dc8-b8a2-96c96ea2ad02",
+    authority: "https://login.microsoftonline.com/de0d2b78-9d6b-4c0f-a3a0-42271ce9bb8b", // This is a URL (e.g. https://login.microsoftonline.com/{your tenant ID})
+    redirectUri: "http://localhost:3007",
+    postLogoutRedirectUri: "http://localhost:3007"
+  },
+  cache: {
+    cacheLocation: "sessionStorage", // This configures where your cache will be stored
+    storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
+  }
+};
   
   // Add scopes here for ID token to be used at Microsoft identity platform endpoints.
   export const loginRequest = {
