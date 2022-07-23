@@ -1,0 +1,26 @@
+{
+    "name": "Army Digital Innovation Platform",
+    "short_name": "DIP",
+    "description": "Progressive Web App that lists games submitted to the A-Frame category in the js13kGames 2017 competition.",
+    "icons": [
+      {
+        "src": "ic_launcher_round.png",
+        "sizes": "96x96",
+        "type": "image/png"
+      },
+      {
+        "src": "ic_launcher-web.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      },
+      {
+        "src": "playstore-icon.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "start_url": "/index.html",
+    "display": "standalone",
+    "theme_color": "#FFFFFF",
+    "background_color": "#FFFFFF"
+  }
