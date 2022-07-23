@@ -4,7 +4,6 @@
   "author": "Aaron Luhning <a.luhning@vitalpoint.ai>",
   "license": "MIT",
   "scripts": {
-    "prebuild": "npm run clean",
     "clean": "rimraf ./dist && rimraf .parcel-cache",
     "cleandist": "rimraf ./dist",
     "build": "node ./node_modules/.bin/parcel build src/index.html --no-scope-hoist --no-optimize",
