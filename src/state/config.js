@@ -45,7 +45,7 @@ let config = {
     APP_OWNER_ACCOUNT: 'vitalpointai.testnet',
     CERAMIC_API_URL: 'https://ceramic-node.vitalpointai.com',
     IPFS_PROVIDER: 'https://cloudflare-ipfs.com/ipfs/',
-    TOKEN_CALL: 'https://testnet.nearguilds.live/api/token',
+    TOKEN_CALL: 'https://adip.azurewebsites.net/api/token',
     APPSEED_CALL: 'https://testnet.nearguilds.live/api/appseed',
     FUNDING_SEED_CALL: 'https://testnet.nearguilds.live/api/funding-seed',
     SENDY_API_KEY_CALL: 'https://testnet.nearguilds.live/api/sendy',
