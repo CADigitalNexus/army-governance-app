@@ -36,7 +36,7 @@ jobs:
         env:
           ENV: test
           NODE_ENV: production
-          PUBLIC_URL: /
+          PUBLIC_URL: https://lemon-sand-0d3985a10.1.azurestaticapps.net
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
