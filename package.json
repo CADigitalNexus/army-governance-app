@@ -40,6 +40,7 @@
     "stream-browserify": "^3.0.0"
   },
   "dependencies": {
+    "rimraf": "^3.0.2",
     "3id-did-provider": "^1.1.1",
     "@apollo/client": "^3.4.17",
     "@azure/identity": "^1.5.2",
