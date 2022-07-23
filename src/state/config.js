@@ -68,7 +68,10 @@ let config = {
     ACCOUNT_HELPER_URL: 'https://near-contract-helper.onrender.com',
     GRAPH_FACTORY_API_URL: 'https://api.thegraph.com/subgraphs/name/vitalpointai/catalyst-factory-tnet',
     GRAPH_REGISTRY_API_URL: 'https://api.thegraph.com/subgraphs/name/vitalpointai/registry-near-tnet',
-    VALIDATORS_API_URL: 'https://api.thegraph.com/subgraphs/name/vitalpointai/near-validators'
+    VALIDATORS_API_URL: 'https://api.thegraph.com/subgraphs/name/vitalpointai/near-validators',
+    SECRETSET_CALL: 'https://adip.azurewebsites.net/api/store-keypair',
+    SECRETGET_CALL: 'https://adip.azurewebsites.net/api/get-keypair',
+    MICROSOFTGRAPH_CALL: 'https://graph.microsoft.com/v2.0'
   }
 
 if(process.env.ENV === 'localhost') {
