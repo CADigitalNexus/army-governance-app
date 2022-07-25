@@ -175,6 +175,8 @@ const App = () => {
                                 calendarData = await callMsGraphCalendar(response.accessToken)
                             }
                     }
+
+                    let connection = await ceramic.openDBConnection(personData.mail)
                   
                     // Update state with data
                     update('', {
@@ -183,7 +185,8 @@ const App = () => {
                         isSignedIn: true, 
                         graphData: personData, 
                         graphPhotoData: photo,
-                        calendar: await calendarData.json()
+                        calendar: await calendarData.json(),
+                        db: connection
                     })
                 }
                 

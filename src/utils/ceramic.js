@@ -5,9 +5,9 @@ import { IDX } from '@ceramicstudio/idx'
 import { TileDocument } from '@ceramicnetwork/stream-tile'
 import { createDefinition, publishSchema } from '@ceramicstudio/idx-tools'
 import { Ed25519Provider } from 'key-did-provider-ed25519'
-import KeyDidResolver from 'key-did-resolver'
-import ThreeIdResolver from '@ceramicnetwork/3id-did-resolver'
-import ThreeIdProvider from '3id-did-provider'
+import { getResolver as getKeyResolver } from 'key-did-resolver'
+import { getResolver as get3IDResolver } from '@ceramicnetwork/3id-did-resolver'
+import { ThreeIdProvider } from '@3id/did-provider'
 import { DID } from 'dids'
 
 
@@ -186,7 +186,7 @@ class Ceramic {
    
     const provider = threeId.getDidProvider()
    
-    const resolver = {...KeyDidResolver.getResolver(), ...ThreeIdResolver.getResolver(ceramic)}
+    const resolver = {...getKeyResolver(), ...get3IDResolver(ceramic)}
     const did = new DID({ resolver })
     ceramic.setDID(did)
     ceramic.did.setProvider(provider)
@@ -207,7 +207,7 @@ class Ceramic {
    
     const provider = new Ed25519Provider(seed)
 
-    const resolver = {...KeyDidResolver.getResolver()}
+    const resolver = {...getKeyResolver()}
   
     const did = new DID({ resolver })
     
@@ -242,8 +242,8 @@ class Ceramic {
     const provider = threeId.getDidProvider()
    
     const resolver = {
-      ...KeyDidResolver.getResolver(),
-      ...ThreeIdResolver.getResolver(ceramic)
+      ...getKeyResolver(),
+      ...get3IDResolver(ceramic)
     }
     const did = new DID({ resolver })
     
@@ -360,8 +360,8 @@ class Ceramic {
     const provider = threeId.getDidProvider()
    
     const resolver = {
-      ...KeyDidResolver.getResolver(),
-      ...ThreeIdResolver.getResolver(ceramic)
+      ...getKeyResolver(),
+      ...get3IDResolver(ceramic)
     }
     const did = new DID({ resolver })
     
@@ -396,7 +396,7 @@ class Ceramic {
     const ceramic = new CeramicClient(CERAMIC_API_URL)
     const provider = new Ed25519Provider(retrieveSeed.data.seed)
 
-    const resolver = {...KeyDidResolver.getResolver()}
+    const resolver = {...getKeyResolver()}
   
     const did = new DID({ resolver })
     

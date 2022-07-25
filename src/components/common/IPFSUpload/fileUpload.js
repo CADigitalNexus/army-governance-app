@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-const { create } = require('ipfs-http-client')
+import { create } from 'ipfs-http-client'
 
 export default function FileUpload(props) {
 
