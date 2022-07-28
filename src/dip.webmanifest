@@ -1,7 +1,7 @@
 {
-    "name": "Army Digital Innovation Platform",
-    "short_name": "DIP",
-    "description": "Progressive Web App that lists games submitted to the A-Frame category in the js13kGames 2017 competition.",
+    "name": "Army Governance Management System",
+    "short_name": "AGM",
+    "description": "The army governance management system.",
     "icons": [
       {
         "src": "dip-logo-96.png",
@@ -19,8 +19,8 @@
         "type": "image/png"
       }
     ],
-    "start_url": "https://lemon-sand-0d3985a10.1.azurestaticapps.net",
+    "start_url": "https://localhost:3007",
     "display": "fullscreen",
-    "theme_color": "#58714C",
-    "background_color": "#58714C"
+    "theme_color": "#FFFFFF",
+    "background_color": "#FFFFFF"
   }

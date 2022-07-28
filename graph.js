@@ -62,6 +62,7 @@ export async function callMsGraphCalendar(accessToken) {
     let result
     try{
         result = await fetch(graphConfig.graphMeCalendarEndpoint, options)
+        console.log('calendar result', result)
     } catch (err) {
         console.log('error getting calendar', err)
     }

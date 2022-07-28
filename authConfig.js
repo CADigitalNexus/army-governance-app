@@ -3,8 +3,8 @@ export const msalConfig = {
     auth: {
       clientId: "b7da93bc-25db-4dc8-b8a2-96c96ea2ad02",
       authority: "https://login.microsoftonline.com/de0d2b78-9d6b-4c0f-a3a0-42271ce9bb8b", // This is a URL (e.g. https://login.microsoftonline.com/{your tenant ID})
-      redirectUri: "https://lemon-sand-0d3985a10.1.azurestaticapps.net",
-      postLogoutRedirectUri: "https://lemon-sand-0d3985a10.1.azurestaticapps.net"
+      redirectUri: "https://localhost:3007",
+      postLogoutRedirectUri: "https://localhost:3007"
     },
     cache: {
       cacheLocation: "sessionStorage", // This configures where your cache will be stored

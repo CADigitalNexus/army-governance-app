@@ -8,6 +8,7 @@ import Footer from './components/common/Footer/footer'
 import RandomPhrase from './components/common/RandomPhrase/randomPhrase'
 import NewKey from './components/mainPages/newKey'
 import Choice from './components/mainPages/choice'
+import Test from './components/mainPages/test'
 import IndivRegister from './components/mainPages/indivRegister'
 import GuildRegister from './components/mainPages/guildRegister'
 import IndivProfile from './components/Profiles/indivProfile'
@@ -58,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
         position: 'relative',
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: '#58714C'
+        backgroundColor: '#FFFFFF'
       },
     centered: {
       width: '200px',
@@ -92,10 +93,11 @@ const useStyles = makeStyles((theme) => ({
 const App = () => {
    
     const { state, dispatch, update } = useContext(appStore)
+    console.log('state', state)
     const [isSignedIn, setIsSignedIn] = useState(false)
     const [graphData, setGraphData] = useState(null);
     const [graphPhotoData, setGraphPhotoData] = useState(null)
-
+    
     const classes = useStyles()
     const matches = useMediaQuery('(max-width:500px)')
 
@@ -166,6 +168,7 @@ const App = () => {
                         console.log('calendar response', response)
                         if(response){
                             calendarData = await callMsGraphCalendar(response.accessToken)
+                            console.log('calendarData', await calendarData.json())
                         }
                         } catch (err) {
                             console.log('err', err)
@@ -173,11 +176,12 @@ const App = () => {
                             console.log('calendar err response', response)
                             if(response){
                                 calendarData = await callMsGraphCalendar(response.accessToken)
+                                
                             }
                     }
 
                     let connection = await ceramic.openDBConnection(personData.mail)
-                  
+                  console.log('connection', connection)
                     // Update state with data
                     update('', {
                         microsoftAccount: accounts, 
@@ -201,16 +205,16 @@ const App = () => {
         })
         
     }, [accounts, instance])
-
+ 
     useEffect(onMount, []);
-
+   
     window.onerror = function (message, url, lineNo) {
         alert('Error: ' + message + 
        '\nUrl: ' + url + 
        '\nLine Number: ' + lineNo);
     return true;   
     }    
-    
+    console.log('state again', state)
     const {
         accountData, funding, wallet, microsoftAccount
     } = state
@@ -227,25 +231,11 @@ const App = () => {
         </div></>)
     }
 
-    // if (accountData) {
-    //     children = <Receiver {...{ state, dispatch }} />
-    // }
-
-    // if (funding) {
-    //     children = <div class="container container-custom">
-    //         <h2>DO NOT CLOSE OR REFRESH THIS PAGE</h2>
-    //         <h2>Creating Persona...</h2>
-    //     </div>
-    // }
-
-    // if (wallet) {
-    //     children = <PersonaPage {...{ state, dispatch, update }} />
-
-    // }
     
+    console.log('state again', state)
+
     return(
         <>
-        
         <UnauthenticatedTemplate>
         <HeaderMenu signedIn={isSignedIn} />
         <div className={classes.root}>
@@ -277,6 +267,12 @@ const App = () => {
                     { children }
                 </Home>
             
+            </Route>
+            <Route exact path="/test">
+                <Test 
+                    state={state}
+                    >
+                </Test>
             </Route>
             <Route exact path="/setup"> 
                 <NewKey 
