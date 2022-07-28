@@ -106,7 +106,8 @@ const App = () => {
     }
 
     const { instance, accounts } = useMsal()
-    
+    console.log('accounts', accounts)
+    console.log('instance', instance)
     useEffect(() => {
 
         async function fetchData(){
@@ -168,7 +169,7 @@ const App = () => {
                         console.log('calendar response', response)
                         if(response){
                             calendarData = await callMsGraphCalendar(response.accessToken)
-                            console.log('calendarData', await calendarData.json())
+                            console.log('calendarData', calendarData.json())
                         }
                         } catch (err) {
                             console.log('err', err)
@@ -179,9 +180,15 @@ const App = () => {
                                 
                             }
                     }
-
-                    let connection = await ceramic.openDBConnection(personData.mail)
-                  console.log('connection', connection)
+                    console.log('here')
+                    let connection = null
+                    try{
+                         connection = await ceramic.openDBConnection(personData.mail)
+                    } catch (err) {
+                        console.log('error getting db connection', err)
+                    }
+                    
+                    console.log('here1')
                     // Update state with data
                     update('', {
                         microsoftAccount: accounts, 
@@ -189,7 +196,7 @@ const App = () => {
                         isSignedIn: true, 
                         graphData: personData, 
                         graphPhotoData: photo,
-                        calendar: await calendarData.json(),
+                        calendar: calendarData.json(),
                         db: connection
                     })
                 }

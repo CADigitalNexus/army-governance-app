@@ -53,7 +53,7 @@ export const {
 class Ceramic {
 
   async openDBConnection(microsoftAccount){
-
+console.log('here2')
     let token = await axios.post(TOKEN_CALL, 
       {
       accountId: microsoftAccount
@@ -74,9 +74,8 @@ class Ceramic {
         }
       }
     )
+    console.log('here 3')
     console.log('connectionString', connectionString)
-    
-
     return connectionString.data.connection
   }
 
